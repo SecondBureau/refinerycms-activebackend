@@ -1,0 +1,4 @@
+refinerycms-dashboard
+=====================
+
+Customized Dashboard
