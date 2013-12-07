@@ -1,0 +1,37 @@
+%tr
+  - if selecting
+    %td
+      = check_box_tag 'group[user_ids][]', user.id
+  %td.title
+    %strong
+      = user.username
+  %td.preview
+    = user.email
+  %td
+    = l(user.created_at, :format => :short)
+  %td
+    %center
+      - if user.has_role?(Refinery::Groups.admin_role)
+        %span.label.label-purple= t('refinery.groups.groupadmin')
+  - unless selecting 
+    %td
+      %center
+        .btn-group
+          %button.btn.btn-xs.btn-default.dropdown-toggle{data: {toggle: "dropdown"}}
+            %i.icon-cog
+          %ul.dropdown-menu
+            %li= mail_to user.email, refinery_icon_tag('email_go.png'), title: t('email_user', :scope => 'refinery.admin.users.user')
+            %li
+              - if current_refinery_user.can_edit?(user)
+                = link_to refinery.edit_groups_admin_group_user_path(@group, user), class: "edit_user", title: t('edit', :scope => 'refinery.admin.users') do
+                  = refinery_icon_tag('application_edit.png')
+                  Edit
+              - else
+                = refinery_icon_tag('application_edit.png')
+        
+            %li= link_to refinery_icon_tag('user_delete.png'), refinery.groups_admin_group_user_path(@group, user),
+        class: "cancel confirm-delete delete_user",
+        title: t('delete', :scope => 'refinery.admin.users'),
+        method: :delete,
+        data: {confirm: t('message', scope: 'refinery.admin.delete', title: user.username)} if current_refinery_user.can_delete?(user)
+        

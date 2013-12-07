@@ -1,0 +1,32 @@
+%tr{id: dom_id(group)}
+  %td.icon{class: group.expired? ? 'row-grey' : (group.soon_expired? ? 'row-orange' : 'row-green')}
+    .hidden= t(group.status, scope: 'refinery.groups.admin.groups.status')
+    %center
+      %i{class: group.expired? ? 'icon-plane' : (group.soon_expired? ? 'icon-refresh' : 'icon-ok')}
+  %td
+    = link_to group.name, refinery.groups_admin_group_path(group), class: "show_group", title: t('.view')
+  %td
+    = t('.has_n_users', count: group.users.size)
+  %td
+    = link_to l(group.expires_on), refinery.groups_admin_group_path(group), class: "show_group", title: t('.view')
+    
+  %td
+    %center
+      .btn-group
+        %button.btn.btn-xs.btn-default.dropdown-toggle{data: {toggle: "dropdown"}}
+          %i.icon-cog
+        %ul.dropdown-menu
+          %li= link_to 'View users', refinery.groups_admin_group_path(group), 
+                class: "show_group",
+                title: t('.view')
+          %li= link_to 'Ajouter', refinery.new_groups_admin_group_user_path(group), 
+                class: "show_group", 
+                title: t('refinery.groups.admin.groups.group.add_user')
+          - unless group.is_guest_group? || !current_refinery_user.is_group_superadmin?
+            %li= link_to 'delete', refinery.groups_admin_group_path(group),
+                  class: "cancel confirm-delete delete_group",
+                  title: t('.delete'),
+                  data: {confirm: t('message', scope: 'refinery.admin.delete', title: group.name)},
+                  method: :delete
+            %li= link_to "editer", refinery.edit_groups_admin_group_path(group),
+                  title: t('.edit')

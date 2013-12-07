@@ -1,0 +1,18 @@
+
+- if @users.any?
+  .box
+    .box-content
+      %table.table.table-normal
+        %thead
+          %tr
+            - if selecting
+              %td
+            %td User
+            %td Email
+            %td Since
+            %td
+            - unless selecting
+              %td
+        %tbody
+          = render partial: 'refinery/groups/admin/users/user', collection: @users, locals: {selecting: false}
+        

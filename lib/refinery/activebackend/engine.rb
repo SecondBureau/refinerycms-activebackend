@@ -1,5 +1,6 @@
 require 'haml-rails'
 require 'acts_as_indexed'
+require 'compass-rails'
 
 
 module Refinery

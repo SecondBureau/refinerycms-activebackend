@@ -11,11 +11,11 @@ $header-gradient-top: #fdfdfd;
 $header-gradient-bottom: #eaeaea;
 
 //every color array has the base color class name in the left, and the actual color on the right
-$triangleColors: red #aa433a, green #8fae53, blue #7fb3d4, orange #CF6E20;
+$triangleColors: red #aa433a, green #8CC079, blue #7fb3d4, orange #CF6E20;
 $buttonColors:
   default $header-gradient-top,
   red #c57979,
-  green #96c161,
+  green #8CC079,
   blue #5ba5cb,
   gray #8c97a6,
   black #838383,
@@ -31,7 +31,7 @@ $news-colors: blue #7FB3D4, green #8CC079, cyan #81BABD, purple #AEA7CF;
 $barColors:  green #97af32, blue darken(#9bcff5, 10), orange #d28346, black #4c4c4c, red #c8514e;
 $sideColors: green #83DA05, red #E15307, orange #EF8132;
 $numeric-stats-colors: blue #6e97aa, red #ba6d6d, green #8fae53;
-$badge-colors: blue #7FB3D4, gray #767676, green #8CC079, red #b35d5d, dark-red #b5473e, black #666, cyan #81BABD, purple #AEA7CF;
+$badge-colors: blue #7FB3D4, gray #767676, green #8CC079, red #b35d5d, dark-red #b5473e, black #666, cyan #81BABD, purple #AEA7CF, orange #ff9f01;;
 $primary-sidebar-width: 200px;
 $primary-sidebar-dropdown-width: 90px;
 

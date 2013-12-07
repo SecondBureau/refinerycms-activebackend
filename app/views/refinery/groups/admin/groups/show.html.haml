@@ -1,0 +1,60 @@
+
+.row
+  .col-md-8
+    .box
+      .box-header
+        %span.title= @group.name
+        %ul.box-toolbar
+          %li 
+            %span.label.label-purple= t('users', count: @group.users.size, scope: 'refinery.groups.admin.groups.show')
+          - unless @group.is_guest_group? || @group.expires_on.nil?
+            %li
+              %span.label{class: @group.expired? ? 'label' : (@group.soon_expired? ? 'label-orange' : 'label-green')}
+                - if @group.expired?
+                  = t('.expired_since', expires_on: distance_of_time_in_words_to_now(@group.expires_on))
+                - else
+                  = t('.expires_on', expires_on: distance_of_time_in_words_to_now(@group.expires_on))
+
+      .box-content.padded
+         
+
+        = @group.description
+        
+  
+  .col-md-4
+    .padded
+      .ul.action-nav-normal.rounded
+        %li.action-nav-button
+          = link_to refinery.new_groups_admin_group_user_path(@group), id: "add_user", class: "tip", title: t('refinery.groups.admin.groups.group.add_user') do
+            %i.icon-user
+          %span.triangle-button.green
+            %i.icon-plus
+          
+        - unless @group.is_guest_group? || !current_refinery_user.is_group_superadmin? 
+          %li.action-nav-button
+            = link_to refinery.groups_admin_group_path(@group), 
+                    title: t('refinery.groups.admin.groups.group.delete'),
+                    data: {confirm: t('message', scope: 'refinery.admin.delete', title: @group.name)},
+                    method: :delete,
+                    class: 'tip',
+                    id: "delete_group" do
+              %i.icon-group
+            %span.triangle-button.red
+              %i.icon-minus
+          %li.action-nav-button
+            = link_to refinery.edit_groups_admin_group_path(@group), title: t('refinery.groups.admin.groups.group.edit'), id: "edit_group", class: "tip" do
+              %i.icon-group
+            %span.triangle-button.blue
+              %i.icon-edit
+
+          
+        
+     
+
+.row
+  .col-md-12
+    = render 'show_users', {selecting: false}
+
+
+        
+ 

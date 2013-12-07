@@ -38,6 +38,12 @@
 }
 
 @each $pair in $badge-colors {
+  .row-#{nth($pair, 1)} {
+    color: nth($pair, 2);
+  }
+}
+
+@each $pair in $badge-colors {
   .badge-#{nth($pair, 1)} {
     @include badge(nth($pair, 2));
     @extend %badge-extend;
