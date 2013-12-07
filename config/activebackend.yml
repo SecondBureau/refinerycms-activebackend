@@ -1,0 +1,12 @@
+plugins:
+  refinery_users:
+    icon: user
+  refinery_dashboard:
+    icon: dashboard
+  refinery_images:
+    icon: picture
+  refinery_files:
+    icon: folder-open
+  refinery_pages:
+    icon: book
+      

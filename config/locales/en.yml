@@ -1,3 +1,6 @@
 en:
   refinery:
+    passwords:
+      new:
+        send_me: Reset my password 
     activebackend: activebackend

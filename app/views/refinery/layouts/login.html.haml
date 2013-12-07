@@ -1,14 +1,35 @@
 !!!
 = render '/refinery/html_tag'
+
+- content_for :meta do
+  %meta{name: "viewport", content: "width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0"}
+  
+- content_for :stylesheets do
+  / = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Open+Sans:400,600,800'
+  = stylesheet_link_tag 'activebackend'
+  
+- content_for :javascripts do
+  = javascript_include_tag 'activebackend'
+
 = render '/refinery/admin/head'
-%body.login{class: I18n.locale }
-  #tooltip_container
-  %header
-    %h1=yield :header
-  #page_container
-    #page
-      #content.clearfix
-        #flash_container
-          = render '/refinery/message'
-        = yield
+
+%body{class: I18n.locale }
+  = render '/refinery/site_bar', login_page: true   
+  
+  
+  
+  .container
+    = yield
+  
 </html>
+
+
+/ #tooltip_container
+/ %header
+/   %h1=yield :header
+/ #page_container
+/   #page
+/     #content.clearfix
+/       #flash_container
+/         = render '/refinery/message'
+/       = yield

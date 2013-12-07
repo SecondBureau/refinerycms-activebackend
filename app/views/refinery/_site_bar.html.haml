@@ -1,0 +1,11 @@
+- if defined? login_page || refinery_user? && "#{controller_name}##{action_name}" !~ %r{preview#show}
+
+  - unless admin? # all required JS included by backend. %>
+    - content_for :stylesheets, stylesheet_link_tag('refinery/site_bar') unless !!local_assigns[:exclude_css]
+    = yield(:stylesheets) unless local_assigns[:head] || local_assigns[:exclude_css]
+    
+  %nav.navbar.navbar-default.navbar-inverse.navbar-static-top{role: 'navigation'}
+    / Brand and toggle get grouped for better mobile display
+    .navbar-header
+      = link_to Refinery::Core.site_name, refinery.root_path, class: 'navbar-brand'
+      

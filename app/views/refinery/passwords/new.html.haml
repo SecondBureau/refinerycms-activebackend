@@ -1,0 +1,25 @@
+
+
+.col-md-4.col-md-offset-4
+  .padded
+    .login.box{style: "margin-top: 80px;"}
+      .box-header
+        %span.title= t('enter_email_address', scope: 'refinery.users.forgot')
+      
+      .box-content.padded
+      
+        = render '/refinery/message' 
+      
+        = form_for resource, as: resource_name, url: refinery.refinery_user_password_path, html: {class: "separate-sections"} do |f|
+          
+          .input-group.addon-left
+            %span.input-group-addon{href: "#"}
+              %i.icon-user
+            = f.text_field :email, placeholder: t('email_address', scope: 'refinery.users.forgot')
+           
+          .submit
+            = button_tag type: 'submit', class: "btn btn-blue btn-block", relative: true  do
+              = t('.send_me')
+              %i.icon-ok-circle
+              
+        = link_to t('sign_in', scope: 'refinery.sessions.new'), refinery.login_path, relative: true

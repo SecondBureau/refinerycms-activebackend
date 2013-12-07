@@ -1,0 +1,6 @@
+- ::Refinery::Plugins.active.in_menu.each do |plugin| 
+  %li{class: ("active" if plugin.highlighted?(params))}
+    %span.glow
+    = link_to refinery.url_for(plugin.url), id: "plugin_#{plugin.name}", relative: true do
+      %i.icon-2x{class: "icon-#{plugin.icon}"}
+      %span= plugin.title

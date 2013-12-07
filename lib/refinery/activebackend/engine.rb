@@ -1,6 +1,6 @@
 require 'haml-rails'
 require 'acts_as_indexed'
-require 'jquery-rails'
+
 
 module Refinery
   module Activebackend
