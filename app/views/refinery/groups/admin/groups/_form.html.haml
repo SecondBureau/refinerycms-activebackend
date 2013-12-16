@@ -1,0 +1,44 @@
+.row
+  .col-md-12
+  
+    .box
+      .box-header
+        %span.title New Group
+      
+      .box-content.padded
+      
+        = form_for [refinery, :groups_admin, @group], html: {class:"fill-up"} do |f|
+  
+          = render '/refinery/admin/error_messages', :object => @group, :include_object_name => true
+
+          .row
+            #left-col
+              .col-lg-6
+                %ul.padded.separate-sections
+                  %li.input
+                    %label= t('name', scope: 'activerecord.attributes.refinery/groups/group')
+                    = f.text_field :name, placeholder: t('name_tooltip', scope: 'activerecord.attributes.refinery/groups/group')
+                    
+                  %li
+                    %label= t('expires_on', scope: 'activerecord.attributes.refinery/groups/group')
+                    .input-group.addon-right
+                      %span.input-group-addon{href: "#"}
+                        %i.icon-th
+                      = f.text_field :expires_on, class: "datepicker fill-up", placeholder: t('expires_on_tooltip', scope: 'activerecord.attributes.refinery/groups/group')
+
+                    
+            #right-col
+              .col-lg-6
+                %ul.padded.separate-sections
+                  %li.input
+                    %label= t('description', scope: 'activerecord.attributes.refinery/groups/group')
+                    = f.text_area :description, rows: 10, placeholder: t('description_tooltip', scope: 'activerecord.attributes.refinery/groups/group')
+
+  
+          .row
+            .col-md-6
+              = render '/refinery/admin/form_actions', :f => f, 
+              :continue_editing => false,
+              :delete_title => t('delete', :scope => 'refinery.groups.admin.groups.group'),
+              :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @group.name)
+

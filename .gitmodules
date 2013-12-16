@@ -1,0 +1,3 @@
+[submodule "app/assets/javascripts/ckeditor/skins/BootstrapCK-Skin"]
+	path = app/assets/javascripts/ckeditor/skins/BootstrapCK-Skin
+	url = git://github.com/Kunstmaan/BootstrapCK-Skin

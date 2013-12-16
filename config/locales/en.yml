@@ -4,3 +4,10 @@ en:
       new:
         send_me: Reset my password 
     activebackend: activebackend
+
+  activerecord:
+    attributes:
+      refinery/groups/group:
+        name_tooltip: Enter the name of the Group
+        description_tooltip: This is a short description which is not displayed to users
+        expires_on_tooltip: Clic here to show up a calendar

@@ -4,12 +4,6 @@
 - content_for :meta do
   %meta{refinerycms: Refinery.version}
   %meta{name: "viewport", content: "width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0"}
-  
-- content_for :stylesheets do
-  = stylesheet_link_tag 'activebackend'
-  
-- content_for :javascripts do
-  = javascript_include_tag 'activebackend'
 
 = render '/refinery/admin/head'
 
@@ -17,8 +11,8 @@
   = render '/refinery/site_bar'
   = render '/refinery/admin/menu'
   
-  - plugin = Refinery::Plugins.active.try(:find_current, params) 
-  
+  - plugin = Refinery::Plugins.active.try(:find_current, params) ||  Refinery::Plugin.new
+
   .main-content
     .container
       .row

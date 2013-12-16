@@ -1,0 +1,40 @@
+/
+  replace 'div[data-erb-class]'
+
+.row
+  .form-actions
+  
+    - unless hide_submit
+      %button.btn.btn-blue.tip{type: "submit", id: submit_button_id, name: nil, title: submit_button_title}
+        = submit_button_text
+       
+        
+    - if continue_editing
+      - if f.object.persisted?
+        %button.btn.btn-blue.tip{type: "submit", id: "submit_continue_button"}
+          = t('.save_and_continue_editing', scope: "refinery.admin.continue_editing")
+    
+      = hidden_field_tag :continue_editing, false
+      
+      
+    = local_assigns[:before_cancel_button]
+
+    - unless hide_cancel
+      = link_to cancel_url do
+        %button.btn.btn-default.tip{type: "button", id: cancel_button_id, name: nil, title: cancel_title}
+          = cancel_button_text
+     
+    = local_assigns[:after_cancel_button] 
+     
+    .pull-right
+     
+      = local_assigns[:before_delete_button]
+     
+      - unless hide_delete 
+        = link_to delete_url, method: :delete, data: {confirm: delete_confirmation} do
+          %button.btn.btn-red.tip{type: "button", id: cancel_button_id, name: nil, title: delete_title}
+            = delete_button_text
+
+      = local_assigns[:after_delete_button]
+    
+

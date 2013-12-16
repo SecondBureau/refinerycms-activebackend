@@ -16,6 +16,8 @@ Open up your ``Gemfile`` and add at the bottom this line:
 gem 'refinerycms-activebackend', '~> 2.1.0'
 ```
 
+    Refinery::Activebackend.menus!
+
 Now, run ``bundle install``
 
 Next, to install the groups extension run:
@@ -29,6 +31,12 @@ Run database migrations:
 Finally seed your database and you're done.
 
     rake db:seed
+
+## Config
+
+CKEditor
+Styles
+    
 
 ## Developing & Contributing
 

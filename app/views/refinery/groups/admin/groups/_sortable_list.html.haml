@@ -1,28 +1,29 @@
-.row
-  .col-md-12
-    .box
-      .box-header
-        %span.title Groups
-        %ul.box-toolbar
-          %li 
-            %span.label.label-grey= t('n_expired', scope: 'refinery.groups.admin.groups.status', count:@groups_expired_count)
-          %li 
-            %span.label.label-orange= t('n_soon_expired', scope: 'refinery.groups.admin.groups.status', count:@groups_soon_expired_count)
-          %li
-            %span.label.label-green= t('n_active', scope: 'refinery.groups.admin.groups.status', count:@groups_active_count)
-          
-      .box-content
-        #dataTables
-          %table.dTable.responsive{cellpadding:0, cellspacing:0, border:0 }
-            %thead
-              %tr
-                %th 
-                %th
-                  %div GroupName
-                %th
-                  %div Members
-                %th
-                  %div Expires_on
-                %th
-            %tbody
-              = render :partial => 'group', :collection => @groups
+
+
+.box
+  .box-header
+    %span.title Groups
+    %ul.box-toolbar
+      %li 
+        %span.label.label-grey= t('n_expired', scope: 'refinery.groups.admin.groups.status', count:@groups_expired_count)
+      %li 
+        %span.label.label-orange= t('n_soon_expired', scope: 'refinery.groups.admin.groups.status', count:@groups_soon_expired_count)
+      %li
+        %span.label.label-green= t('n_active', scope: 'refinery.groups.admin.groups.status', count:@groups_active_count)
+    
+  .box-content
+    #dataTables
+      %table.dTable.responsive{cellpadding:0, cellspacing:0, border:0 }
+        %thead
+          %tr
+            %th 
+            %th
+              %div GroupName
+            %th
+              %div Members
+            %th
+              %div Expires_on
+            %th
+      
+        %tbody
+          = render :partial => 'group', :collection => @groups

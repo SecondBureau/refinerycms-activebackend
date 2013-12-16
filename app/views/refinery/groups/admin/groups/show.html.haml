@@ -1,4 +1,5 @@
 
+
 .row
   .col-md-8
     .box
@@ -22,39 +23,10 @@
         
   
   .col-md-4
-    .padded
-      .ul.action-nav-normal.rounded
-        %li.action-nav-button
-          = link_to refinery.new_groups_admin_group_user_path(@group), id: "add_user", class: "tip", title: t('refinery.groups.admin.groups.group.add_user') do
-            %i.icon-user
-          %span.triangle-button.green
-            %i.icon-plus
-          
-        - unless @group.is_guest_group? || !current_refinery_user.is_group_superadmin? 
-          %li.action-nav-button
-            = link_to refinery.groups_admin_group_path(@group), 
-                    title: t('refinery.groups.admin.groups.group.delete'),
-                    data: {confirm: t('message', scope: 'refinery.admin.delete', title: @group.name)},
-                    method: :delete,
-                    class: 'tip',
-                    id: "delete_group" do
-              %i.icon-group
-            %span.triangle-button.red
-              %i.icon-minus
-          %li.action-nav-button
-            = link_to refinery.edit_groups_admin_group_path(@group), title: t('refinery.groups.admin.groups.group.edit'), id: "edit_group", class: "tip" do
-              %i.icon-group
-            %span.triangle-button.blue
-              %i.icon-edit
-
-          
-        
-     
+    = render 'show_buttons'
+                  
 
 .row
-  .col-md-12
+  .col-md-8
     = render 'show_users', {selecting: false}
 
-
-        
- 

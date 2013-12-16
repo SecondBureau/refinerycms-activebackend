@@ -20,7 +20,7 @@
           .input-group.addon-left
             %span.input-group-addon{href: "#"}
               %i.icon-key
-            = f.text_field :password, autocomplete: 'off', placeholder: t('password', scope: 'activerecord.attributes.refinery/user')
+            = f.password_field :password, autocomplete: 'off', placeholder: t('password', scope: 'activerecord.attributes.refinery/user')
            
           .submit
             = button_tag type: 'submit', class: "btn btn-blue btn-block", relative: true  do
@@ -29,25 +29,6 @@
 
         = link_to t('forgot_password', scope: 'refinery.sessions.new'), refinery.new_refinery_user_password_path, relative: true
 
-/ .field.session_username.clearfix
-/   = f.label :login
-/   = f.text_field :login, :class => 'larger widest' 
-/ 
-/ .field.session_password.clearfix
-/   = f.label :password
-/   = f.password_field :password, :autocomplete => 'off', :class => 'larger widest'
-/ 
-/ .clearfix
-/ 
-/   - if devise_mapping.rememberable?
-/     .field.remember_me
-/       = f.check_box :remember_me
-/       = f.label :remember_me
-/ 
-/   .field.forgot_password
-/     = link_to t('forgot_password', scope: 'refinery.sessions.new'), refinery.new_refinery_user_password_path
-/  
-/ = render '/refinery/admin/form_actions', :f => f, :submit_button_text => t('refinery.sessions.new.sign_in'), :hide_cancel => true 
 
 
 

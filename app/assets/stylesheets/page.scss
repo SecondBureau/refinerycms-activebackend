@@ -1,0 +1,27 @@
+@import "mixin_helpers";
+@import "variables";
+
+$divcolor: #7FB3D4;
+$radius: 3px;
+$border-color: rgba(0,0,0,.5);
+
+
+#records.tree ul li > div:hover, .tree ul li > div:hover {
+  @include std-bg($divcolor, darken($divcolor, 3));
+  color: white;
+  @include box-shadow(0 0 0 1px #cccccc, 0 1px 0px rgba(255,255,255,.6), 0 1px 0 1px rgba(255,255,255,.6));
+  
+}
+
+#records.tree ul li > div, .tree ul li > div {
+  padding-right: 10px;
+  line-height:31px;
+}
+
+#records.tree ul li span.icon, .tree ul li span.icon {
+  margin-top: 6px;
+}
+
+#records.tree ul li span.title, .tree ul li span.title {
+  margin-right: 6px;
+}

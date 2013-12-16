@@ -16,22 +16,27 @@
   - unless selecting 
     %td
       %center
+      
         .btn-group
-          %button.btn.btn-xs.btn-default.dropdown-toggle{data: {toggle: "dropdown"}}
-            %i.icon-cog
-          %ul.dropdown-menu
-            %li= mail_to user.email, refinery_icon_tag('email_go.png'), title: t('email_user', :scope => 'refinery.admin.users.user')
-            %li
-              - if current_refinery_user.can_edit?(user)
-                = link_to refinery.edit_groups_admin_group_user_path(@group, user), class: "edit_user", title: t('edit', :scope => 'refinery.admin.users') do
-                  = refinery_icon_tag('application_edit.png')
-                  Edit
-              - else
-                = refinery_icon_tag('application_edit.png')
+          %button.btn.btn-xs.btn-default
+            - if current_refinery_user.can_edit?(user)
+              = link_to refinery.edit_groups_admin_group_user_path(@group, user), 
+                class: "edit_user tip", 
+                title: t('edit', :scope => 'refinery.admin.users') do
+                %i.icon-edit.row-blue
+            - else
+              %i.icon-edit{style:"cursor:default;"}
         
-            %li= link_to refinery_icon_tag('user_delete.png'), refinery.groups_admin_group_user_path(@group, user),
-        class: "cancel confirm-delete delete_user",
-        title: t('delete', :scope => 'refinery.admin.users'),
-        method: :delete,
-        data: {confirm: t('message', scope: 'refinery.admin.delete', title: user.username)} if current_refinery_user.can_delete?(user)
+          %button.btn.btn-xs.btn-default
+            - if current_refinery_user.can_delete?(user)
+              = link_to refinery.groups_admin_group_user_path(@group, user), 
+                class: "cancel confirm-delete delete_user tip", 
+                title: t('delete', :scope => 'refinery.admin.users'), 
+                method: :delete, 
+                data: {confirm: t('message', scope: 'refinery.admin.delete', title: user.username)} do
+                %i.icon-trash.row-red
+            - else
+              %i.icon-trash{style:"cursor:default;"}
         
+        
+     

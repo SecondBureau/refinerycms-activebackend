@@ -1,0 +1,25 @@
+.ul.action-nav-normal.rounded
+  %li.action-nav-button
+    = link_to refinery.new_admin_page_path, 
+        title: t('create_new_page', scope: 'refinery.admin.pages.actions'), 
+        class: "tip" do
+      %i.icon-book
+    %span.triangle-button.green
+      %i.icon-plus
+      
+  - if @pages.many? and !searching?
+    %li.action-nav-button{id:"reorder_action"}
+      = link_to refinery.admin_pages_path, 
+          title: t('reorder_pages', scope: 'refinery.admin.pages.actions'), 
+          class: "tip" do
+        %i.icon-reorder
+      %span.triangle-button.blue
+        %i.icon-random
+        
+    %li.action-nav-button{id:"reorder_action_done", style: "display: none;"}
+      = link_to refinery.admin_pages_path, 
+          title: t('reorder_pages_done', scope: 'refinery.admin.pages.actions'), 
+          class: "tip" do
+        %i.icon-reorder
+      %span.triangle-button.blue
+        %i.icon-ok

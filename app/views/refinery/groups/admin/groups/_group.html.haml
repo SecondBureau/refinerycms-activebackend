@@ -4,11 +4,11 @@
     %center
       %i{class: group.expired? ? 'icon-plane' : (group.soon_expired? ? 'icon-refresh' : 'icon-ok')}
   %td
-    = link_to group.name, refinery.groups_admin_group_path(group), class: "show_group", title: t('.view')
+    = link_to group.name, refinery.groups_admin_group_path(group), class: "show_group tip", title: t('.view')
   %td
     = t('.has_n_users', count: group.users.size)
   %td
-    = link_to l(group.expires_on), refinery.groups_admin_group_path(group), class: "show_group", title: t('.view')
+    = link_to l(group.expires_on), refinery.edit_groups_admin_group_path(group), class: "edit_group tip", title: t('.edit_expires_on') unless group.expires_on.blank?
     
   %td
     %center

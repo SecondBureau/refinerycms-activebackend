@@ -1,0 +1,6 @@
+/
+  insert_after "script[type]"
+
+
+= javascript_include_tag 'jquery'  
+= javascript_include_tag 'activebackend-initializer'
