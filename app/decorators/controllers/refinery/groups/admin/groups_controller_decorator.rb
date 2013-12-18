@@ -1,3 +1,5 @@
+if defined?(Refinery::Groups)
+  
 Refinery::Groups::Admin::GroupsController.class_eval do
   
   def index
@@ -13,4 +15,6 @@ Refinery::Groups::Admin::GroupsController.class_eval do
     false
   end
   
+end
+
 end

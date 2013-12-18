@@ -1,4 +1,5 @@
-Refinery::Groups::Admin::UsersController.class_eval do
+if defined?(Refinery::Groups)
+  Refinery::Groups::Admin::UsersController.class_eval do
   
   
   private
@@ -7,4 +8,5 @@ Refinery::Groups::Admin::UsersController.class_eval do
     false
   end
   
+end
 end
