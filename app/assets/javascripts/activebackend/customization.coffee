@@ -30,7 +30,8 @@ $ ->
       language: $('html').attr('lang')
       bodyClass: $(this).data "body-class"
       removePlugins: 'placeholder'
-      extraPlugins: 'stylesheetparser'
+      extraPlugins: 'imagebrowser'
       customConfig: '/assets/ckeditor-config.js'
       contentsCss: '/assets/ckeditor-config.css'
       stylesSet: 'activebackend:/assets/ckeditor-styles.js'
+      imageBrowser_listUrl: "/refinery/images.json"

@@ -2,19 +2,38 @@
   .box-header
     %ul.nav.nav-tabs.nav-tabs-left
       %li.active
-        %a{"data-toggle" => "tab", href: "#home2"}
-          %i.icon-home
+        %a{"data-toggle" => "tab", href: "#pictures"}
+          %i.icon-picture
+          %span Images
       %li
-        %a{"data-toggle" => "tab", href: "#profile2"}
-          %i.icon-comments-alt
-          %span Messages
+        %a{"data-toggle" => "tab", href: "#files"}
+          %i.icon-folder-open
+          %span Files
       %li
-        %a{"data-toggle" => "tab", href: "#settings2"}
+        %a{"data-toggle" => "tab", href: "#settings"}
           %i.icon-cog
           %span Settings
     .title Left tabs
   .box-content.padded
     .tab-content
-      #home2.tab-pane.active Going home
-      #profile2.tab-pane And now to the profile
-      #settings2.tab-pane Changing the settings
+      #pictures.tab-pane.active
+        %p Drag and drop these images into the editor:
+        %ul
+          - Refinery::Image.all.each do |image| 
+            %li
+              = image_tag image.thumbnail(geometry: '150x150').url
+              = image.title
+      
+      
+      #files.tab-pane
+        %p Drag and drop these files into the editor:
+        %ul
+          - Refinery::Resource.all.each do |resource| 
+            %li= link_to resource.title, resource.url
+      
+      
+      
+      #settings.tab-pane
+        Changing the settings
+      
+      

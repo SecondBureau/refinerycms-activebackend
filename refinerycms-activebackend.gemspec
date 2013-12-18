@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.add_dependency             'haml-rails'
   s.add_dependency             'compass-rails'
   s.add_dependency             'deface'
-  #s.add_dependency             'refinerycms-ckeditor'
+  s.add_dependency             'jbuilder'
 
   # Development dependencies (usually used for testing)
   s.add_development_dependency 'refinerycms-testing', '~> 2.1.0'

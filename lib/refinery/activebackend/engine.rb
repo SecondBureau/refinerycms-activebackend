@@ -2,6 +2,7 @@ require 'haml-rails'
 require 'acts_as_indexed'
 require 'compass-rails'
 require 'deface'
+require 'jbuilder'
 
 
 module Refinery
