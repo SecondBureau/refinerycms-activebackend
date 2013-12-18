@@ -5,6 +5,9 @@
   %meta{refinerycms: Refinery.version}
   %meta{name: "viewport", content: "width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0"}
   
+- content_for :javascripts do
+  = javascript_include_tag "vendor/jquery/validationEngine-#{current_admin_locale}"
+  
 = render '/refinery/admin/head'
 
 %body{class: I18n.locale }

@@ -10,5 +10,3 @@
 // = require activebackend/ckeditor-basepath
 // = require vendor/ckeditor/ckeditor
 // = require activebackend/customization.coffee
-
-
