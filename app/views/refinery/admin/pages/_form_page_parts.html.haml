@@ -1,0 +1,27 @@
+.box
+  
+  .box-header
+    %ul.nav.nav-tabs.nav-tabs-left
+    
+      - @page.parts.each_with_index do |part, part_index|
+        %li{class: part_index.eql?(0) ? 'active' : 'inactive', data: {index: part_index}}
+          = link_to "##{@page.persisted? ? part.to_param : "page_part_new_#{part_index}"}", data: {toggle: "tab"} do
+            %i.icon-book
+            %span= part.title
+            
+      - ::Refinery::Pages.tabs_for_template(@page.view_template).each_with_index do |tab, tab_index|
+        %li{id: "custom_#{tab.name}_tab"}
+          = link_to "#custom_tab_#{tab_index}", data: {toggle: "tab"} do
+            %i.icon-wrench
+            %span= tab.name.titleize
+
+    .title Page
+  
+  .box-content.padded
+    .tab-content
+      
+      - part_index = -1
+      = f.fields_for :parts do |p|
+        = render 'page_part_field', part: p.object, part_index: (part_index += 1), new_part: @page.new_record?
+        
+     

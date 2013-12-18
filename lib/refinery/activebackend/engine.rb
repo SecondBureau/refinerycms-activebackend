@@ -2,7 +2,6 @@ require 'haml-rails'
 require 'acts_as_indexed'
 require 'compass-rails'
 require 'deface'
-require 'refinerycms-ckeditor'
 
 
 module Refinery

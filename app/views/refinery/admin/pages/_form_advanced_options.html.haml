@@ -1,0 +1,20 @@
+.box
+  .box-header
+    %ul.nav.nav-tabs.nav-tabs-left
+      %li.active
+        %a{"data-toggle" => "tab", href: "#home2"}
+          %i.icon-home
+      %li
+        %a{"data-toggle" => "tab", href: "#profile2"}
+          %i.icon-comments-alt
+          %span Messages
+      %li
+        %a{"data-toggle" => "tab", href: "#settings2"}
+          %i.icon-cog
+          %span Settings
+    .title Left tabs
+  .box-content.padded
+    .tab-content
+      #home2.tab-pane.active Going home
+      #profile2.tab-pane And now to the profile
+      #settings2.tab-pane Changing the settings

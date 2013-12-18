@@ -16,7 +16,6 @@ Open up your ``Gemfile`` and add at the bottom this line:
 gem 'refinerycms-activebackend', '~> 2.1.0'
 ```
 
-    Refinery::Activebackend.menus!
 
 Now, run ``bundle install``
 

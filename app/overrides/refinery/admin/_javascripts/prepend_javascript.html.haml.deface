@@ -3,4 +3,4 @@
 
 
 = javascript_include_tag 'jquery'  
-= javascript_include_tag 'activebackend-initializer'
+= javascript_include_tag 'activebackend/initializer'
