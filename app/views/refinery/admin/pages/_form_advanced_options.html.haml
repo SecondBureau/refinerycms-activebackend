@@ -1,39 +1,68 @@
-.box
-  .box-header
-    %ul.nav.nav-tabs.nav-tabs-left
-      %li.active
-        %a{"data-toggle" => "tab", href: "#pictures"}
-          %i.icon-picture
-          %span Images
-      %li
-        %a{"data-toggle" => "tab", href: "#files"}
-          %i.icon-folder-open
-          %span Files
-      %li
-        %a{"data-toggle" => "tab", href: "#settings"}
-          %i.icon-cog
-          %span Settings
-    .title Left tabs
-  .box-content.padded
-    .tab-content
-      #pictures.tab-pane.active
-        %p Drag and drop these images into the editor:
-        %ul
-          - Refinery::Image.all.each do |image| 
-            %li
-              = image_tag image.thumbnail(geometry: '150x150').url
-              = image.title
+%p= t('advanced_options', scope: 'refinery.admin.form_advanced_options_menu')
+
+%ul.separate-sections
+
+  %li.input
+    = f.label :parent_id, t('.parent_page')
+    = refinery_help_icon t('.parent_page_help')
+    = f.select :parent_id, parent_id_nested_set_options(@page), include_blank: true
+    
+  - if Refinery::Pages.use_layout_templates
+    %li.input
+      = f.label :layout_template, t('.layout_template')
+      = refinery_help_icon t('.layout_template_help')
+      = f.select :layout_template, @valid_layout_templates, template_options(:layout_template, @page)
+
+  - unless @valid_view_templates.nil?
+    %li.input
+      = f.label :view_template, t('.view_template')
+      = refinery_help_icon t('.view_template_help')
+      = f.select :view_template, @valid_view_templates.map { |t| [t.titleize, t] }, template_options(:view_template, @page) 
+    
+  %li.input
+    = f.label :menu_title, t('.menu_title')
+    = refinery_help_icon t('.menu_title_help')
+    = f.text_field :menu_title
+    
+  - if Refinery::Pages.use_custom_slugs
+    %li.input
+      = f.label :custom_slug, t('.custom_slug')
+      = refinery_help_icon t('.custom_slug_help')
+      = f.text_field :custom_slug
+
+  .li
+    .row
+      .col-md-6
+        %div
+          = f.check_box :skip_to_first_child, class:"icheck"
+          = f.label :skip_to_first_child?, t('.skip_to_first_child')
+          
+      .col-md-6
+        %div
+          = f.check_box :show_in_menu, class:"icheck"
+          = f.label :show_in_menu, t('.show_in_menu_description')   
       
-      
-      #files.tab-pane
-        %p Drag and drop these files into the editor:
-        %ul
-          - Refinery::Resource.all.each do |resource| 
-            %li= link_to resource.title, resource.url
-      
-      
-      
-      #settings.tab-pane
-        Changing the settings
-      
-      
+  .li
+    .row
+      .col-md-6
+        .note.large
+          %i.icon-warning-sign
+          = t('.skip_to_first_child_label') 
+          %br
+          = t('.skip_to_first_child_help')
+          
+      .col-md-6
+        .note.large
+          %i.icon-warning-sign
+          = t('.show_in_menu_title')
+          %br
+          = t('.show_in_menu_help')
+          
+  .li.input
+    = f.label :link_url, t('.link_url')
+    = refinery_help_icon t('.link_url_help')
+    = f.text_field :link_url, "data-validation-engine" => "validate[custom[url]]"
+    
+
+    
+    

@@ -1,8 +1,11 @@
 .box
   
   .box-header
-    %ul.nav.nav-tabs.nav-tabs-left
+  
+    .title Contents
     
+    %ul.nav.nav-tabs.nav-tabs-right  
+      
       - @page.parts.each_with_index do |part, part_index|
         %li{class: part_index.eql?(0) ? 'active' : 'inactive', data: {index: part_index}}
           = link_to "##{@page.persisted? ? part.to_param : "page_part_new_#{part_index}"}", data: {toggle: "tab"} do
@@ -15,7 +18,7 @@
             %i.icon-wrench
             %span= tab.name.titleize
 
-    .title Page
+    
   
   .box-content.padded
     .tab-content

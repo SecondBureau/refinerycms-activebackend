@@ -1,0 +1,41 @@
+.box
+  .box-header
+    
+    .title Options
+    
+    %ul.nav.nav-tabs.nav-tabs-right
+      %li.active
+        %a{"data-toggle" => "tab", href: "#seo"}
+          %i.icon-trophy
+          %span SEO
+        
+      %li
+        %a{"data-toggle" => "tab", href: "#settings"}
+          %i.icon-cog
+          %span Settings
+          
+      %li
+        %a{"data-toggle" => "tab", href: "#files"}
+          %i.icon-folder-open
+          %span Files
+      %li
+        
+    
+  .box-content.padded
+    .tab-content
+      
+      
+      #files.tab-pane
+        %p Drag and drop these files into the editor:
+        %ul.separate-sections
+          - Refinery::Resource.all.each do |resource| 
+            %li= link_to resource.title, resource.url
+      
+      #seo.tab-pane.active
+        = render 'form_seo', :f => f
+      
+      #settings.tab-pane
+        = render 'form_advanced_options', :f => f
+        
+      
+      

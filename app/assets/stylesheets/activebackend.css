@@ -27,7 +27,7 @@
 * require coreadmin/select2
 * require coreadmin/select2_overrides
 * require coreadmin/ui_custom
-* require coreadmin/icheck_blue
+*= require coreadmin/icheck_blue
 * require coreadmin/xcharts
 * require coreadmin/justgage
 * require coreadmin/easy_pie_chart
@@ -47,7 +47,7 @@
 * require coreadmin/bootstrap-wizard
 * require coreadmin/error_pages
 * require coreadmin/bootstrap-wysihtml5
-* require coreadmin/validation_engine
+*= require coreadmin/validation_engine
 *= require coreadmin/bootstrap-editable
 *= require coreadmin/bootstrap-editable-fix
 *= require coreadmin/responsive992

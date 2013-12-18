@@ -2,6 +2,7 @@ $ ->
 
   #tooltips  
   $('.no-tooltip').tooltip(gravity: 'n', fade: true, html:true)
+  $('i.icon-info-sign').tooltip(gravity: 'n', fade: true, html:true)
 
   #initialize the data tables
   $(".dTable").dataTable(
@@ -13,6 +14,15 @@ $ ->
   
   #tag inputs
   $('.tags').tagsInput(width:'100%');
+  
+  #Checkbox
+  $('.icheck').iCheck
+    checkboxClass: 'icheckbox_flat-aero'
+    radioClass: 'iradio_flat-aero'
+    
+  #validation engine
+  $("form.validatable").validationEngine
+    promptPosition: "topLeft",
   
   #activate the datepicker
   $('.datepicker').datepicker

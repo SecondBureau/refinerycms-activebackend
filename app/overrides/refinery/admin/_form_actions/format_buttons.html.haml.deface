@@ -12,7 +12,7 @@
     - if continue_editing
       - if f.object.persisted?
         %button.btn.btn-blue.tip{type: "submit", id: "submit_continue_button"}
-          = t('.save_and_continue_editing', scope: "refinery.admin.continue_editing")
+          = t('save_and_continue_editing', scope: "refinery.admin.continue_editing")
     
       = hidden_field_tag :continue_editing, false
       

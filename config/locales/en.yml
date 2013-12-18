@@ -4,6 +4,11 @@ en:
       new:
         send_me: Reset my password 
     activebackend: activebackend
+    
+    pages:
+      admin:
+        errors:
+          cannot_find: This page does not exists.
 
   activerecord:
     attributes:

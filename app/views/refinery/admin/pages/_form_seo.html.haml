@@ -1,0 +1,14 @@
+%p= t('seo', scope: 'seo_meta.form')
+
+%ul.separate-sections
+
+  %li.input
+    = f.label :browser_title, t('seo_override_title', scope: 'seo_meta.form')
+    = refinery_help_icon t('seo_override_title_help', scope: 'seo_meta.form')
+    = f.text_field :browser_title, placeholder: t('seo_override_title_help', scope: 'seo_meta.form')
+    
+  %li.input
+    = f.label :meta_description, t('meta_description_title', scope: 'seo_meta.form')
+    = refinery_help_icon t('meta_description_help', scope: 'seo_meta.form')
+    = f.text_area :meta_description, placeholder: t('meta_description_help', scope: 'seo_meta.form'), rows: 4
+    
