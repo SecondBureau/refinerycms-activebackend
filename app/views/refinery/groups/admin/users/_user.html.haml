@@ -18,24 +18,26 @@
       %center
       
         .btn-group
-          %button.btn.btn-xs.btn-default
-            - if current_refinery_user.can_edit?(user)
-              = link_to refinery.edit_groups_admin_group_user_path(@group, user), 
-                class: "edit_user tip", 
-                title: t('edit', :scope => 'refinery.admin.users') do
-                %i.icon-edit.row-blue
-            - else
+          
+          - if current_refinery_user.can_edit?(user)
+            = link_to refinery.edit_groups_admin_group_user_path(@group, user), 
+              class: "edit_user tip btn btn-xs btn-default", 
+              title: t('edit', :scope => 'refinery.admin.users') do
+              %i.icon-edit.row-blue
+          - else
+            %button.btn.btn-xs.btn-default.disabled
               %i.icon-edit{style:"cursor:default;"}
         
-          %button.btn.btn-xs.btn-default
-            - if current_refinery_user.can_delete?(user)
-              = link_to refinery.groups_admin_group_user_path(@group, user), 
-                class: "cancel confirm-delete delete_user tip", 
-                title: t('delete', :scope => 'refinery.admin.users'), 
-                method: :delete, 
-                data: {confirm: t('message', scope: 'refinery.admin.delete', title: user.username)} do
-                %i.icon-trash.row-red
-            - else
+          
+          - if current_refinery_user.can_delete?(user)
+            = link_to refinery.groups_admin_group_user_path(@group, user), 
+              class: "cancel confirm-delete delete_user tip btn btn-xs btn-default", 
+              title: t('delete', :scope => 'refinery.admin.users'), 
+              method: :delete, 
+              data: {confirm: t('message', scope: 'refinery.admin.delete', title: user.username)} do
+              %i.icon-trash.row-red
+          - else
+            %button.btn.btn-xs.btn-default.disabled
               %i.icon-trash{style:"cursor:default;"}
         
         
