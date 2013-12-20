@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.add_dependency             'compass-rails'
   s.add_dependency             'deface'
   s.add_dependency             'jbuilder'
+  s.add_dependency             'will_paginate'
 
   # Development dependencies (usually used for testing)
   s.add_development_dependency 'refinerycms-testing', '~> 2.1.0'

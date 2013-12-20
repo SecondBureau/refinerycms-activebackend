@@ -37,9 +37,9 @@
 * require coreadmin/accordion
 * require coreadmin/thumbnails
 *= require coreadmin/bootstrap_alerts
-* require coreadmin/pagination
+*= require coreadmin/pagination
 * require coreadmin/modal
-* require coreadmin/touchTouch
+*= require coreadmin/touchTouch
 * require coreadmin/tables
 * require coreadmin/scrollable
 * require coreadmin/news
@@ -58,7 +58,6 @@
 *= require page
 */
 
-
 .tooltip {
   background: transparent;
   border: 0px;
@@ -74,3 +73,25 @@ a:hover {
           box-sizing: content-box !important;
 }
 
+#thumbs{
+  margin:10px auto 25px;
+}
+
+#thumbs a:after{
+  content: attr(data-title);
+  bottom: -120px;
+}
+
+.box-header ul.pagination {
+  background-color: inherit;
+  margin: 7px 0;
+  padding: 0px;
+}
+
+label {
+ margin-top: 0px;
+}
+
+.box-header label {
+  margin-bottom: 0px;
+}

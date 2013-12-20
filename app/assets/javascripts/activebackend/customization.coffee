@@ -1,8 +1,19 @@
 $ ->
 
   #tooltips  
-  $('.no-tooltip').tooltip(gravity: 'n', fade: true, html:true)
-  $('i.icon-info-sign').tooltip(gravity: 'n', fade: true, html:true)
+  #$('.no-tooltip').tooltip(gravity: 'n', fade: true, html:true)
+  $('i.icon-info-sign').tooltip
+    gravity: 'n', 
+    fade: true, 
+    html: true
+  
+  # $('#thumbs a').tooltip
+  #   items: "[data-title], [data-desc]",
+  #   content: -> 
+  #     "title" + info.data("title") + "Description: " + info.data('desc')
+  $('#thumbs a').tooltip
+    title: $(this).data("title")
+  
 
   #initialize the data tables
   $(".dTable").dataTable(
@@ -23,6 +34,9 @@ $ ->
   #validation engine
   $("form.validatable").validationEngine
     promptPosition: "topLeft",
+  
+  #initialize photo gallery
+  $('#thumbs a').touchTouch();
   
   #activate the datepicker
   $('.datepicker').datepicker

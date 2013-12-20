@@ -1,0 +1,15 @@
+.padded
+  .ul.action-nav-normal.rounded
+    %li.action-nav-button
+      - if current_refinery_user.is_group_superadmin?
+        = link_to refinery.new_groups_admin_group_path, 
+            title: t('create_new', scope: 'refinery.groups.admin.groups.actions'), 
+            class: "tip" do
+          %i.icon-picture
+        %span.triangle-button.green
+          %i.icon-plus
+      - else
+        = link_to '#', style:"cursor:default;color: #585858;" do
+          %i.icon-picture
+        %span.triangle-button.gray
+          %i.icon-plus

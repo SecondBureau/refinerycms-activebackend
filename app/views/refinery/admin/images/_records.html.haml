@@ -1,0 +1,59 @@
+
+
+/ <%= render 'refinery/admin/search_header', :url => refinery.admin_images_path %>
+/ <div class="pagination_container">
+/   <% if @images.any? %>
+/     <%= render 'images' %>
+/   <% else %>
+/     <p>
+/       <% if searching? %>
+/         <%= t('no_results', :scope => 'refinery.admin.search') %>
+/       <% else %>
+/         <strong>
+/           <%= t('.no_images_yet') %>
+/         </strong>
+/       <% end %>
+/     </p>
+/   <% end %>
+/ </div>
+
+.box
+  .box-header
+    %span.title Photo Gallery
+    %ul.box-toolbar
+
+      / %li{style:"line-height:0px"}
+      /   %ul.pagination.pagination-xs
+      /     %li=link_to 'Prev', '#'
+      %li{style:"line-height:0px"}
+        = will_paginate @images, renderer: Activebackend::BoxHeaderLinkRenderer if Refinery::Admin::ImagesController.pageable?
+              
+        
+      %li
+        %form.fill-up{style: "width: 100px", action: refinery.admin_images_path, method:'GET'}
+          = hidden_field :dialog,   nil, name: 'dialog',   id: nil, value: false
+          = hidden_field :callback, nil, name: 'callback', id: nil, value: @callback if @callback.presence
+          %label.input-with-submit
+            
+            = text_field :search, nil, id: 'search2', type: 'search', name: 'search', placeholder: params[:search] || "Search..."
+            %button{type: "submit", class: "submit-icon"}
+              %i.icon-search
+      %li
+        %span.label.label-blue= Refinery::Image.count
+
+
+
+  .box-content.pagination_container
+    
+    - if @images.any?
+      = render 'images'
+    - else
+      %p
+        - if searching?
+          = t('no_results', :scope => 'refinery.admin.search')
+        - else
+          %strong= t('.no_images_yet')
+
+  
+  .box-footer
+    %span Ok

@@ -3,6 +3,7 @@ require 'acts_as_indexed'
 require 'compass-rails'
 require 'deface'
 require 'jbuilder'
+require_relative '../../will_paginate_customization'
 
 
 module Refinery
